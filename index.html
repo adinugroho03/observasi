@@ -1,0 +1,1827 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jejak Observasi — Pembelajaran Digital Teks LHO SMA Kelas X</title>
+  <meta name="description" content="Platform pembelajaran digital interaktif Teks Laporan Hasil Observasi (LHO) berbasis video observasi budaya lokal Surakarta untuk siswa SMA Kelas X.">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🔎</text></svg>">
+</head>
+<body class="javanese-theme">
+
+  <!-- ===================================================================
+       CULTURAL JAVANESE BORDER & WAYANG SIDE WATERMARKS
+       =================================================================== -->
+  <div class="cultural-decorations-layer no-print" aria-hidden="true">
+    <!-- Left Batik Border Strip -->
+    <div class="batik-side-border left-border"></div>
+    <!-- Right Batik Border Strip -->
+    <div class="batik-side-border right-border"></div>
+
+    <!-- Floating Wayang Gunungan Left (Top Area) -->
+    <div class="wayang-side-floating wayang-left">
+      <svg viewBox="0 0 100 140" xmlns="http://www.w3.org/2000/svg">
+        <path d="M50 0 C40 25 24 48 14 74 C6 93 2 114 2 138 C18 139 34 140 50 140 C66 140 82 139 98 138 C98 114 94 93 86 74 C76 48 60 25 50 0 Z" 
+              fill="#CBA02F" opacity="0.12"/>
+        <path d="M50 6 C42 28 28 50 19 75 C12 92 8 111 8 132 C22 133 36 134 50 134 C64 134 78 133 92 132 C92 111 88 92 81 75 C72 50 58 28 50 6 Z" 
+              fill="none" stroke="#CBA02F" stroke-width="1.2" opacity="0.22"/>
+        <path d="M50 16 L50 128 M50 48 Q35 38 26 55 M50 66 Q33 58 24 76 M50 84 Q34 76 25 94 M50 48 Q65 38 74 55 M50 66 Q67 58 76 76 M50 84 Q66 76 75 94" 
+              fill="none" stroke="#825F3E" stroke-width="0.9" opacity="0.2"/>
+        <rect x="42" y="112" width="16" height="20" rx="2" fill="none" stroke="#CBA02F" stroke-width="1.2" opacity="0.3"/>
+      </svg>
+    </div>
+
+    <!-- Floating Wayang Gunungan Right (Bottom Area) -->
+    <div class="wayang-side-floating wayang-right">
+      <svg viewBox="0 0 100 140" xmlns="http://www.w3.org/2000/svg">
+        <path d="M50 0 C40 25 24 48 14 74 C6 93 2 114 2 138 C18 139 34 140 50 140 C66 140 82 139 98 138 C98 114 94 93 86 74 C76 48 60 25 50 0 Z" 
+              fill="#CBA02F" opacity="0.12"/>
+        <path d="M50 6 C42 28 28 50 19 75 C12 92 8 111 8 132 C22 133 36 134 50 134 C64 134 78 133 92 132 C92 111 88 92 81 75 C72 50 58 28 50 6 Z" 
+              fill="none" stroke="#CBA02F" stroke-width="1.2" opacity="0.22"/>
+        <path d="M50 16 L50 128 M50 48 Q35 38 26 55 M50 66 Q33 58 24 76 M50 84 Q34 76 25 94 M50 48 Q65 38 74 55 M50 66 Q67 58 76 76 M50 84 Q66 76 75 94" 
+              fill="none" stroke="#825F3E" stroke-width="0.9" opacity="0.2"/>
+        <rect x="42" y="112" width="16" height="20" rx="2" fill="none" stroke="#CBA02F" stroke-width="1.2" opacity="0.3"/>
+      </svg>
+    </div>
+  </div>
+
+  <!-- Top Navigation Bar -->
+  <nav class="navbar no-print">
+    <div class="nav-brand" onclick="navigateTo('beranda')">
+      <div class="brand-logo-frame">
+        <img src="assets/logo-jejak-observasi.png" alt="Logo Jejak Observasi Surakarta" class="brand-logo-img">
+      </div>
+      <div class="brand-text-box">
+        <h1>
+          Jejak Observasi
+          <span class="brand-badge">Solo Hadiningrat • SMA X</span>
+        </h1>
+        <div class="brand-tagline-mini">Amati Budayanya, Temukan Faktanya, Tulis Laporannya.</div>
+      </div>
+    </div>
+
+    <ul class="nav-links">
+      <li><button class="nav-btn active" data-target="beranda"><span class="nav-icon">🏠</span> Beranda</button></li>
+      <li><button class="nav-btn" data-target="kenali"><span class="nav-icon">📖</span> Kenali LHO</button></li>
+      <li><button class="nav-btn" data-target="struktur"><span class="nav-icon">📐</span> Struktur LHO</button></li>
+      <li><button class="nav-btn" data-target="kaidah"><span class="nav-icon">✍️</span> Kaidah Bahasa</button></li>
+      <li><button class="nav-btn" data-target="peta"><span class="nav-icon">🗺️</span> Peta Solo</button></li>
+      <li><button class="nav-btn" data-target="video"><span class="nav-icon">🎥</span> Observasi</button></li>
+      <li><button class="nav-btn" data-target="catat"><span class="nav-icon">📝</span> Catat Fakta</button></li>
+      <li><button class="nav-btn" data-target="susun"><span class="nav-icon">📄</span> Publikasi LHO</button></li>
+      <li><button class="nav-btn nav-btn-padlet" data-target="refleksi"><span class="nav-icon">💭</span> Refleksi</button></li>
+    </ul>
+
+    <div class="nav-actions">
+      <!-- Quick Student Identity Pill & Edit Button -->
+      <button class="student-identity-pill" onclick="openStudentIdModal()" title="Klik untuk melengkapi identitas murid & melihat rekap kegiatan">
+        <span class="student-id-avatar">👤</span>
+        <div class="student-id-texts">
+          <span class="student-id-name" id="navStudentName">Belum Isi Nama</span>
+          <span class="student-id-class" id="navStudentClass">Kelas X</span>
+        </div>
+        <span class="student-id-badge-edit">✏️</span>
+      </button>
+
+      <!-- Teacher Portal Button -->
+      <button class="nav-btn-portal-guru" onclick="openTeacherPortalModal()" title="Portal Khusus Guru (Masuk dengan PIN)">
+        <span>🔐</span> Portal Guru
+      </button>
+
+      <!-- Step Indicator Badge -->
+      <div class="student-progress-badge" title="Alur Belajar Siswa">
+        <span id="currentStepIndicator">1. Beranda</span>
+        <div class="progress-dots">
+          <span class="dot current"></span>
+          <span class="dot"></span>
+          <span class="dot"></span>
+          <span class="dot"></span>
+          <span class="dot"></span>
+          <span class="dot"></span>
+          <span class="dot"></span>
+          <span class="dot"></span>
+          <span class="dot"></span>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ===================================================================
+       1. HALAMAN BERANDA (HOME)
+       =================================================================== -->
+  <section id="sec-beranda" class="page-section active">
+    <div class="container">
+      
+      <!-- Hero Banner -->
+      <div class="hero-wrapper hero-wrapper-img-bg">
+        <div class="hero-curtain-strip"></div>
+        <div class="hero-overlay-scrim"></div>
+        
+        <!-- Wayang Gunungan Cultural Watermark Silhouette -->
+        <div class="wayang-gunungan-watermark no-print" aria-hidden="true">
+          <svg viewBox="0 0 100 130" xmlns="http://www.w3.org/2000/svg">
+            <path d="M50 0 C42 22 28 42 16 65 C8 82 2 102 2 124 C18 126 34 128 50 128 C66 128 82 126 98 124 C98 102 92 82 84 65 C72 42 58 22 50 0 Z" 
+                  fill="url(#gununganGold)" opacity="0.16"/>
+            <path d="M50 8 C44 26 32 44 22 66 C15 81 10 98 10 118 C23 120 36 122 50 122 C64 122 77 120 90 118 C90 98 85 81 78 66 C68 44 56 26 50 8 Z" 
+                  fill="none" stroke="#CBA02F" stroke-width="1.2" opacity="0.3"/>
+            <!-- Pohon Hayat Tree of Life Center Lines -->
+            <path d="M50 18 L50 116 M50 50 Q36 40 28 56 M50 68 Q34 60 26 78 M50 86 Q35 78 26 96 M50 50 Q64 40 72 56 M50 68 Q66 60 74 78 M50 86 Q65 78 74 96" 
+                  fill="none" stroke="#CBA02F" stroke-width="0.8" opacity="0.25"/>
+            <!-- Gate of Keraton at Base -->
+            <rect x="42" y="100" width="16" height="20" rx="3" fill="none" stroke="#825F3E" stroke-width="1.2" opacity="0.35"/>
+            <defs>
+              <linearGradient id="gununganGold" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" stop-color="#E9C667"/>
+                <stop offset="50%" stop-color="#CBA02F"/>
+                <stop offset="100%" stop-color="#825F3E"/>
+              </linearGradient>
+            </defs>
+          </svg>
+        </div>
+
+        <!-- Ornamen Batik Sudut Parang Rusak -->
+        <div class="batik-corner-ornament top-left"></div>
+        <div class="batik-corner-ornament bottom-right"></div>
+        
+        <div class="hero-grid-layout">
+          <!-- Text Content -->
+          <div class="hero-content-box">
+            <div class="hero-pill-tag">
+              <span class="jawa-gunungan-mini-icon">🪘</span> Kurikulum Merdeka • Bahasa Indonesia SMA Kelas X
+            </div>
+            <h1 class="hero-title">
+              JEJAK <span class="hero-title-accent">OBSERVASI</span>
+            </h1>
+            <div class="hero-tagline">
+              “Amati Budayanya, Temukan Faktanya, Tulis Laporannya.”
+            </div>
+            <p class="hero-desc">
+              Jelajahi keagungan budaya Kota Surakarta melalui observasi video digital. Temukan data dan fakta terukur, lalu susun menjadi teks Laporan Hasil Observasi (LHO) yang faktual, objektif, dan sistematis.
+            </p>
+
+            <div class="hero-btn-group">
+              <button class="btn btn-primary" data-goto="peta">
+                <span>🗺️</span> MULAI JELAJAH PETA
+              </button>
+              <button class="btn btn-secondary" data-goto="kenali">
+                <span>📖</span> PELAJARI LHO
+              </button>
+              <button class="btn btn-gold-outline" onclick="openSoloCultureModal()">
+                <span>🏮</span> ENSIKLOPEDIA BUDAYA SOLO
+              </button>
+            </div>
+
+            <!-- Cultural Quick Highlights Badge -->
+            <div class="hero-cultural-pills">
+              <span class="cultural-pill" title="Arsitektur Istana Jawa">👑 Keraton Hadiningrat</span>
+              <span class="cultural-pill" title="Pendopo Kayu Terbesar">🏛️ Pura Mangkunegaran</span>
+              <span class="cultural-pill" title="Warisan Batik Tertua">🧵 Batik Laweyan</span>
+              <span class="cultural-pill" title="Harmoni Akulturasi">🏮 Pasar Gede</span>
+              <span class="cultural-pill" title="Oase Konservasi Hayati">🌿 Balekambang</span>
+            </div>
+          </div>
+
+          <!-- Interactive Visual Card with Solo Frame -->
+          <div class="hero-visual-card">
+            <div class="hero-image-frame">
+              <img src="assets/beranda-bg.jpg" alt="Pusaka Budaya Keraton & Warisan Surakarta Hadiningrat" class="hero-main-featured-img">
+              <div class="hero-img-badge-corner">
+                <span>✨</span> Pusaka Adiluhung Solo
+              </div>
+              <div class="hero-img-caption-strip">
+                <strong>Pusaka Budaya Kota Surakarta</strong>
+                <span>Pusat peradaban Mataram Islam & kearifan lokal Jawa</span>
+              </div>
+            </div>
+            <div class="hero-card-footer">
+              <div class="hero-stat-item">
+                <span class="hero-stat-num">5</span>
+                <span class="hero-stat-label">Cagar Budaya</span>
+              </div>
+              <div class="hero-stat-sep"></div>
+              <div class="hero-stat-item">
+                <span class="hero-stat-num">100%</span>
+                <span class="hero-stat-label">Fakta Teruji</span>
+              </div>
+              <div class="hero-stat-sep"></div>
+              <div class="hero-stat-item">
+                <span class="hero-stat-num">Fase E</span>
+                <span class="hero-stat-label">SMA Kelas X</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Alur Visual Konsep Utama -->
+      <div class="learning-flow-section">
+        <div class="flow-header">
+          <div class="section-header-pill">Tahapan Eksplorasi Digital</div>
+          <h3>Alur Belajar Pengamat Muda</h3>
+          <p>Ikuti 6 langkah terpadu untuk menyusun teks LHO berkualitas tinggi dari cagar budaya Surakarta:</p>
+        </div>
+
+        <div class="flow-steps-grid">
+          <!-- Step 1 -->
+          <div class="flow-step-card" data-goto="video">
+            <div class="flow-step-num">Langkah 01</div>
+            <div class="flow-step-icon">🎥</div>
+            <div class="flow-step-title">TONTON</div>
+            <div class="flow-step-desc">Simak dokumenter visual budaya Surakarta dari sumber kredibel terverifikasi.</div>
+            <div class="flow-connector-arrow">➔</div>
+          </div>
+
+          <!-- Step 2 -->
+          <div class="flow-step-card" data-goto="video">
+            <div class="flow-step-num">Langkah 02</div>
+            <div class="flow-step-icon">🔎</div>
+            <div class="flow-step-title">AMATI</div>
+            <div class="flow-step-desc">Fokuskan perhatian pada aspek fisik, arsitektur, sejarah, dan lingkungan objek.</div>
+            <div class="flow-connector-arrow">➔</div>
+          </div>
+
+          <!-- Step 3 -->
+          <div class="flow-step-card" data-goto="catat">
+            <div class="flow-step-num">Langkah 03</div>
+            <div class="flow-step-icon">📝</div>
+            <div class="flow-step-title">CATAT</div>
+            <div class="flow-step-desc">Himpun data dan fakta terukur ke dalam lembar kerja observasi digital.</div>
+            <div class="flow-connector-arrow">➔</div>
+          </div>
+
+          <!-- Step 4 -->
+          <div class="flow-step-card" data-goto="kenali">
+            <div class="flow-step-num">Langkah 04</div>
+            <div class="flow-step-icon">📊</div>
+            <div class="flow-step-title">ANALISIS</div>
+            <div class="flow-step-desc">Pilah antara fakta objektif dengan opini subjektif agar laporan teruji ilmiah.</div>
+            <div class="flow-connector-arrow">➔</div>
+          </div>
+
+          <!-- Step 5 -->
+          <div class="flow-step-card" data-goto="susun">
+            <div class="flow-step-num">Langkah 05</div>
+            <div class="flow-step-icon">📄</div>
+            <div class="flow-step-title">TULIS LHO</div>
+            <div class="flow-step-desc">Rangkai paragraf sesuai struktur baku dan publikasikan atau cetak laporanmu.</div>
+            <div class="flow-connector-arrow">➔</div>
+          </div>
+
+          <!-- Step 6 -->
+          <div class="flow-step-card" data-goto="refleksi" style="border-color: var(--terracotta-500); background: #FFF9F3;">
+            <div class="flow-step-num" style="color: var(--terracotta-600);">Langkah 06</div>
+            <div class="flow-step-icon" style="background: var(--terracotta-50);">💭</div>
+            <div class="flow-step-title" style="color: var(--terracotta-600);">REFLEKSI</div>
+            <div class="flow-step-desc">Sampaikan evaluasi, wawasan baru, dan kesan belajarmu di papan interaktif Padlet.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sorotan Objek Budaya Surakarta -->
+      <div style="margin-top: 3.5rem;">
+        <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 1.5rem;">
+          <div>
+            <div class="section-header-pill">Laboratorium Budaya Virtual</div>
+            <h3 style="font-size: 1.8rem; color: #3D2917;">5 Lokasi Ikonik Kota Bengawan</h3>
+            <p style="color: #6B6258;">Pilih objek pengamatan otentik yang kaya nilai sejarah dan kearifan lokal:</p>
+          </div>
+          <button class="btn btn-secondary" style="padding: 0.6rem 1.25rem; font-size: 0.88rem;" data-goto="peta">
+            Buka Peta Interaktif ➔
+          </button>
+        </div>
+
+        <div class="culture-highlights">
+          <div class="culture-card" onclick="jumpToVideoLocation('keraton')">
+            <div class="culture-card-icon">👑</div>
+            <div class="culture-card-info">
+              <h4>Keraton Surakarta</h4>
+              <p>Istana Kasunanan peninggalan Mataram Islam tahun 1745 dengan peninggalan budaya adiluhung.</p>
+            </div>
+          </div>
+
+          <div class="culture-card" onclick="jumpToVideoLocation('mangkunegaran')">
+            <div class="culture-card-icon">🏛️</div>
+            <div class="culture-card-info">
+              <h4>Pura Mangkunegaran</h4>
+              <p>Istana megah dengan Pendopo Ageng kayu jati terluas tanpa paku dan ornamen Kumudawati.</p>
+            </div>
+          </div>
+
+          <div class="culture-card" onclick="jumpToVideoLocation('laweyan')">
+            <div class="culture-card-icon">🧵</div>
+            <div class="culture-card-info">
+              <h4>Kampung Batik Laweyan</h4>
+              <p>Sentra batik tertua sejak abad ke-16 dengan lorong bertembok tinggi dan rumah saudagar kuno.</p>
+            </div>
+          </div>
+
+          <div class="culture-card" onclick="jumpToVideoLocation('pasargede')">
+            <div class="culture-card-icon">🏮</div>
+            <div class="culture-card-info">
+              <h4>Pasar Gede Hardjonagoro</h4>
+              <p>Karya arsitek Ir. Thomas Karsten yang memadukan arsitektur Belanda dan atap limasan Jawa.</p>
+            </div>
+          </div>
+
+          <div class="culture-card" onclick="jumpToVideoLocation('balekambang')">
+            <div class="culture-card-icon">🌿</div>
+            <div class="culture-card-info">
+              <h4>Taman Balekambang</h4>
+              <p>Taman botani asri seluas 9,8 hektar persembahan Mangkunegara VII dengan beringin langka & rusa.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- KHAZANAH & KOSAKATA BUDAYA SURAKARTA (FITUR INTERAKTIF BARU) -->
+      <div class="solo-heritage-showcase-box" style="margin-top: 3.5rem;">
+        <div class="section-header-pill" style="background: var(--gold-100); color: var(--gold-800);">
+          🏺 Khazanah Kearifan Lokal
+        </div>
+        <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 1.5rem; flex-wrap: wrap; gap: 1rem;">
+          <div>
+            <h3 style="font-size: 1.8rem; color: #3D2917;">Glosarium Istilah Budaya Surakarta dalam Teks LHO</h3>
+            <p style="color: #6B6258; max-width: 750px;">
+              Teks LHO memerlukan <strong>istilah teknis</strong> yang tepat dan akurat. Klik kartu di bawah untuk mempelajari makna dan contoh kalimat ilmiahnya:
+            </p>
+          </div>
+          <span style="font-size: 0.85rem; font-weight: 700; color: var(--terracotta-600); background: var(--terracotta-50); padding: 0.4rem 0.85rem; border-radius: var(--radius-full); border: 1px solid var(--terracotta-200);">
+            💡 Klik untuk Membuka Detail Istilah
+          </span>
+        </div>
+
+        <div class="heritage-terms-grid" id="heritageTermsGrid">
+          <!-- Populated by JS -->
+        </div>
+
+        <!-- Pop-up Detail Preview Box -->
+        <div class="term-detail-callout" id="termDetailCallout" style="display: none;">
+          <div class="term-callout-header">
+            <div style="display: flex; align-items: center; gap: 0.75rem;">
+              <span class="term-callout-icon" id="calloutIcon">🏛️</span>
+              <div>
+                <h4 id="calloutTitle" style="color: #3D2917; margin: 0; font-size: 1.25rem;">Nama Istilah</h4>
+                <span id="calloutCategory" style="font-size: 0.78rem; font-weight: 700; color: var(--sage-700);">Kategori Budaya</span>
+              </div>
+            </div>
+            <button class="term-callout-close" onclick="closeTermDetail()">✕</button>
+          </div>
+          <div class="term-callout-body">
+            <p id="calloutDef" style="font-size: 0.95rem; color: var(--text-main); margin-bottom: 0.75rem; line-height: 1.5;"></p>
+            <div class="term-example-lho">
+              <span style="font-weight: 800; color: var(--brown-800); display: block; margin-bottom: 0.25rem;">Contoh Penerapan dalam Teks LHO:</span>
+              <em id="calloutExample" style="color: var(--terracotta-700);"></em>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===================================================================
+       2. HALAMAN “KENALI LHO” & KUIS FAKTA VS OPINI
+       =================================================================== -->
+  <section id="sec-kenali" class="page-section">
+    <div class="container">
+      
+      <div class="section-header-pill">Modul Teori & Asesmen Formatif</div>
+      <h2 class="section-title">Kenali Teks Laporan Hasil Observasi (LHO)</h2>
+      <p class="section-subtitle">
+        Pahami konsep dasar, pelajari karakteristik esensialnya, dan uji ketajaman analisismu dalam 
+        membedakan fakta objektif dengan opini subjektif.
+      </p>
+
+      <!-- Definisi dan Komparasi -->
+      <div class="concept-grid">
+        <div class="concept-definition-card">
+          <div class="section-header-pill">Definisi Inti</div>
+          <h3 style="font-size: 1.4rem; color: #3D2917;">Apa itu Laporan Hasil Observasi?</h3>
+          <div class="definition-quote">
+            “Teks Laporan Hasil Observasi (LHO) merupakan teks yang menyajikan informasi 
+            berdasarkan <strong>hasil pengamatan langsung terhadap suatu objek</strong> 
+            secara <strong>faktual, objektif, dan sistematis</strong>.”
+          </div>
+          <p style="font-size: 0.9rem; color: #6B6258; line-height: 1.6;">
+            Teks LHO bersifat universal dan ilmiah. Objek yang diamati dapat berupa benda fisik, 
+            lingkungan alam, cagar budaya, kehidupan flora-fauna, hingga fenomena sosial kemasyarakatan.
+          </p>
+        </div>
+
+        <div class="comparison-card">
+          <div class="section-header-pill">Perbedaan Kunci</div>
+          <h3 style="font-size: 1.4rem; color: #3D2917;">Teks LHO vs Teks Deskripsi</h3>
+          <table class="comparison-table">
+            <thead>
+              <tr>
+                <th>Aspek Pembeda</th>
+                <th>Teks LHO</th>
+                <th>Teks Deskripsi</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Sifat Data</strong></td>
+                <td>Objektif, berbasis fakta empiris & data terukur</td>
+                <td>Subjektif, berbasis kesan pribadi penulis</td>
+              </tr>
+              <tr>
+                <td><strong>Cakupan Objek</strong></td>
+                <td>Membahas kelas/kategori objek secara umum</td>
+                <td>Membahas satu objek khusus secara spesifik</td>
+              </tr>
+              <tr>
+                <td><strong>Gaya Bahasa</strong></td>
+                <td>Baku, lugas, denotatif, ilmiah</td>
+                <td>Mengandung kata kiasan / majas impresif</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- 5 Kartu Ciri LHO -->
+      <div style="margin-bottom: 2rem;">
+        <h3 style="font-size: 1.5rem; color: #3D2917; margin-bottom: 1rem;">
+          5 Ciri Utama Teks Laporan Hasil Observasi
+        </h3>
+        
+        <div class="ciri-grid">
+          <!-- Ciri 1 -->
+          <div class="ciri-card">
+            <div class="ciri-badge-num">1</div>
+            <div class="ciri-icon">🔬</div>
+            <div class="ciri-title">Faktual</div>
+            <div class="ciri-desc">
+              Ditulis berdasarkan kenyataan yang benar-benar terjadi di lapangan dan dapat dibuktikan kebenarannya.
+            </div>
+          </div>
+
+          <!-- Ciri 2 -->
+          <div class="ciri-card">
+            <div class="ciri-badge-num">2</div>
+            <div class="ciri-icon">⚖️</div>
+            <div class="ciri-title">Objektif</div>
+            <div class="ciri-desc">
+              Menyajikan data apa adanya tanpa dipengaruhi perasaan, selera, atau keberpihakan pribadi penulis.
+            </div>
+          </div>
+
+          <!-- Ciri 3 -->
+          <div class="ciri-card">
+            <div class="ciri-badge-num">3</div>
+            <div class="ciri-icon">📑</div>
+            <div class="ciri-title">Sistematis</div>
+            <div class="ciri-desc">
+              Disusun secara teratur dan runtut sesuai kaidah struktur baku teks ilmiah dari umum ke khusus.
+            </div>
+          </div>
+
+          <!-- Ciri 4 -->
+          <div class="ciri-card">
+            <div class="ciri-badge-num">4</div>
+            <div class="ciri-icon">💡</div>
+            <div class="ciri-title">Informatif</div>
+            <div class="ciri-desc">
+              Memberikan wawasan, pengetahuan baru, dan nilai kegunaan yang bermanfaat bagi pembaca.
+            </div>
+          </div>
+
+          <!-- Ciri 5 -->
+          <div class="ciri-card">
+            <div class="ciri-badge-num">5</div>
+            <div class="ciri-icon">📚</div>
+            <div class="ciri-title">Bahasa Baku</div>
+            <div class="ciri-desc">
+              Menggunakan kaidah tata bahasa Indonesia baku (EYD/PUEBI) serta istilah teknis yang tepat.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- KUIS INTERAKTIF: FAKTA ATAU OPINI? -->
+      <div class="quiz-container">
+        <div class="quiz-header-bar">
+          <div>
+            <div class="quiz-badge">🎮 Aktivitas Latihan Interaktif</div>
+            <h3 style="font-size: 1.5rem; color: #3D2917; margin-top: 0.35rem;">Kuis: Fakta atau Opini?</h3>
+          </div>
+          <div class="quiz-score-tracker">
+            <div class="score-pill">Pernyataan <span id="quizCurrentNum">1</span> / <span id="quizTotalNum">8</span></div>
+            <div class="score-pill">Skor: <span id="quizScoreValue" style="color: #C85A32; font-weight:800;">0</span> Poin</div>
+          </div>
+        </div>
+
+        <div class="quiz-card">
+          <div class="quiz-context-tag" id="quizContext">Objek Budaya: Surakarta</div>
+          <div class="quiz-statement" id="quizStatement">Memuat pernyataan...</div>
+        </div>
+
+        <!-- Tombol Pilihan -->
+        <div class="quiz-btn-row" id="quizActionRow">
+          <button class="quiz-choice-btn btn-fakta" onclick="handleQuizAnswer('fakta')">
+            <span>✅</span> FAKTA
+          </button>
+          <button class="quiz-choice-btn btn-opini" onclick="handleQuizAnswer('opini')">
+            <span>💭</span> OPINI
+          </button>
+        </div>
+
+        <!-- Feedback Box -->
+        <div class="quiz-feedback-box" id="quizFeedbackBox"></div>
+
+        <div style="text-align: center; margin-top: 1.5rem;">
+          <button class="btn btn-sage" id="quizNextBtn" style="display: none;" onclick="nextQuizQuestion()">
+            Lanjut ke Pernyataan Berikutnya ➔
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===================================================================
+       3. HALAMAN “STRUKTUR LHO” & AKTIVITAS SUSUN PARAGRAF
+       =================================================================== -->
+  <section id="sec-struktur" class="page-section">
+    <div class="container">
+      
+      <div class="section-header-pill">Struktur Teks Ilmiah</div>
+      <h2 class="section-title">Anatomi & Struktur Teks LHO</h2>
+      <p class="section-subtitle">
+        Teks Laporan Hasil Observasi memiliki tiga pilar struktur utama yang tersusun secara hierarkis 
+        dari pengenalan umum, deskripsi terperinci, hingga uraian kemanfaatan bagi kehidupan.
+      </p>
+
+      <!-- 3 Pilar Struktur -->
+      <div class="struktur-flow-horizontal">
+        <!-- Pilar 1 -->
+        <div class="struktur-card">
+          <div class="struktur-card-step">1</div>
+          <h3 class="struktur-title">Pernyataan Umum / Klasifikasi</h3>
+          <p class="struktur-desc">
+            Bagian pembuka yang berisi definisi objek, nama ilmiah/sejarah, letak geografis, 
+            serta pengelompokan objek ke dalam kategori atau kelas tertentu.
+          </p>
+          <ul class="struktur-checklist">
+            <li>✔️ Definisi objek observasi</li>
+            <li>✔️ Latar belakang pendirian & tokoh</li>
+            <li>✔️ Penggolongan / klasifikasi cagar budaya</li>
+          </ul>
+        </div>
+
+        <!-- Pilar 2 -->
+        <div class="struktur-card">
+          <div class="struktur-card-step">2</div>
+          <h3 class="struktur-title">Deskripsi Bagian</h3>
+          <p class="struktur-desc">
+            Bagian inti yang membedah rincian fisik objek, bagian-bagian bangunan, ornamen, 
+            karakteristik bahan, tata ruang, atau proses kerja yang diamati secara mendalam.
+          </p>
+          <ul class="struktur-checklist">
+            <li>✔️ Uraian detail fisik & arsitektur</li>
+            <li>✔️ Komponen atau zonasi ruang cagar budaya</li>
+            <li>✔️ Ukuran, warna motif, material kayu jati/batu</li>
+          </ul>
+        </div>
+
+        <!-- Pilar 3 -->
+        <div class="struktur-card">
+          <div class="struktur-card-step">3</div>
+          <h3 class="struktur-title">Deskripsi Manfaat</h3>
+          <p class="struktur-desc">
+            Bagian penutup yang menjelaskan fungsi guna, nilai edukasi, nilai ekonomi, 
+            nilai ekologis, atau kontribusi pelestarian budaya bagi masyarakat luas.
+          </p>
+          <ul class="struktur-checklist">
+            <li>✔️ Manfaat pelestarian sejarah & tradisi</li>
+            <li>✔️ Fungsi ekonomi & mata pencaharian warga</li>
+            <li>✔️ Kegunaan edukatif bagi pelajar dan peneliti</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- AKTIVITAS INTERAKTIF: SUSUN PARAGRAF -->
+      <div class="puzzle-activity-box">
+        <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1.5rem; flex-wrap: wrap; gap: 1rem;">
+          <div>
+            <div class="section-header-pill">Aktivitas Problem Solving</div>
+            <h3 style="font-size: 1.5rem; color: #3D2917;">Aktivitas: Susun Paragraf LHO</h3>
+            <p style="color: #6B6258; font-size: 0.9rem;">
+              Paragraf-paragraf laporan di bawah ini tersusun secara acak. Urutkan kembali agar membentuk struktur 
+              <strong>Pernyataan Umum ➔ Deskripsi Bagian ➔ Deskripsi Manfaat</strong>.
+            </p>
+          </div>
+
+          <div class="puzzle-tabs">
+            <button class="puzzle-tab-btn active" onclick="loadPuzzleTopic(0)">Contoh 1: Pasar Gede</button>
+            <button class="puzzle-tab-btn" onclick="loadPuzzleTopic(1)">Contoh 2: Batik Laweyan</button>
+          </div>
+        </div>
+
+        <div class="puzzle-instruction">
+          <span>💡</span> 
+          <span><strong>Petunjuk:</strong> Gunakan tombol panah <strong>▲ (Naik)</strong> atau <strong>▼ (Turun)</strong> pada kartu paragraf untuk menata urutan yang runtut. Setelah selesai, klik tombol <strong>Periksa Susunan</strong>!</span>
+        </div>
+
+        <!-- Interactive List -->
+        <div class="draggable-paragraph-list" id="draggableParagraphList"></div>
+
+        <!-- Feedback Alert -->
+        <div id="puzzleFeedbackAlert" class="quiz-feedback-box" style="display: none; margin-bottom: 1.5rem;"></div>
+
+        <div style="display: flex; gap: 1rem; justify-content: flex-end;">
+          <button class="btn btn-secondary" onclick="loadPuzzleTopic(AppState.puzzle.currentTopicIndex)">
+            Acak Ulang 🔄
+          </button>
+          <button class="btn btn-primary" onclick="checkParagraphOrder()">
+            Periksa Susunan Paragraf ➔
+          </button>
+        </div>
+      </div>
+
+      <!-- ASESMEN FORMATIF STRUKTUR LHO DENGAN GIMKIT -->
+      <div class="gimkit-assessment-card">
+        <div class="gimkit-card-header">
+          <div class="gimkit-badge">
+            <span>🎮</span> Asesmen Formatif Interaktif • Gimkit Live
+          </div>
+          <h3 class="gimkit-title">Tantangan Kuis Struktur LHO di Gimkit</h3>
+          <p class="gimkit-subtitle">
+            Uji pemahaman struktur teks LHO (Pernyataan Umum, Deskripsi Bagian, dan Deskripsi Manfaat) secara kolaboratif dan kompetitif bersama teman sekelas melalui permainan Gimkit.
+          </p>
+        </div>
+
+        <div class="gimkit-action-box">
+          <div class="gimkit-info-col">
+            <div class="gimkit-feature-item">
+              <span class="gimkit-icon">🏆</span>
+              <div>
+                <strong>Mode Game Formatif Cepat</strong>
+                <p>Jawab kuis analitis struktur laporan hasil observasi budaya lokal Surakarta.</p>
+              </div>
+            </div>
+            <div class="gimkit-feature-item">
+              <span class="gimkit-icon">⚡</span>
+              <div>
+                <strong>Tautkan dengan Guru / Host Game</strong>
+                <p>Klik tombol untuk langsung membuka lobi permainan Gimkit atau bergabung ke room.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="gimkit-btn-col">
+            <a href="https://www.gimkit.com/host?id=6adc181db6dc393f49a106dd" 
+               target="_blank" 
+               rel="noopener noreferrer" 
+               class="btn-gimkit-play">
+              <span>🚀</span> Buka Game Gimkit Formatif <span>↗</span>
+            </a>
+            <span class="gimkit-link-note">Tautan langsung: gimkit.com/host?id=6adc181db6dc393f49a106dd</span>
+          </div>
+        </div>
+      </div>
+
+      <div style="text-align: center; margin-top: 2rem;">
+        <button class="btn btn-sage" data-goto="kaidah">
+          <span>✍️</span> Lanjut Pelajari Kaidah Kebahasaan ➔
+        </button>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===================================================================
+       4. HALAMAN “KAIDAH KEBAHASAAN”
+       =================================================================== -->
+  <section id="sec-kaidah" class="page-section">
+    <div class="container">
+      
+      <div class="section-header-pill">Kaidah Kebahasaan Teks Ilmiah</div>
+      <h2 class="section-title">Kaidah Kebahasaan Teks Laporan Hasil Observasi</h2>
+      <p class="section-subtitle">
+        Pelajari 8 ciri kebahasaan esensial teks LHO agar laporan pengamatanmu akurat, objektif, denotatif, 
+        dan sesuai kaidah tata bahasa Indonesia baku (EYD/PUEBI).
+      </p>
+
+      <!-- 8 Kartu Interaktif Kaidah Kebahasaan -->
+      <div class="kaidah-cards-grid">
+        
+        <!-- Kartu 1: Nomina & Frasa Nominal -->
+        <div class="kaidah-card">
+          <div class="kaidah-card-header">
+            <div class="kaidah-icon-box">🏷️</div>
+            <span class="kaidah-num-badge">Kaidah 01</span>
+          </div>
+          <h3 class="kaidah-card-title">Nomina & Frasa Nominal</h3>
+          <p class="kaidah-card-def">
+            Kata atau kelompok kata yang berfungsi menamai objek cagar budaya, sarana fisik, bangunan, alat, maupun orang yang diamati.
+          </p>
+          <div class="kaidah-card-func">
+            <strong>Fungsi LHO:</strong> Berperan sebagai subjek maupun objek pengamatan yang dibahas secara spesifik dan faktual.
+          </div>
+          <div class="kaidah-card-example">
+            <strong>Contoh Budaya Surakarta:</strong><br>
+            • Nomina: <em>batik</em>, <em>pendopo</em>, <em>canting</em>, <em>keraton</em>.<br>
+            • Frasa Nominal: <em>bangunan bersejarah</em>, <em>pilar kayu jati utuh</em>, <em>kereta kencana Kyai Garuda Kencana</em>.
+          </div>
+        </div>
+
+        <!-- Kartu 2: Verba Relasional -->
+        <div class="kaidah-card">
+          <div class="kaidah-card-header">
+            <div class="kaidah-icon-box">🔗</div>
+            <span class="kaidah-num-badge">Kaidah 02</span>
+          </div>
+          <h3 class="kaidah-card-title">Verba Relasional</h3>
+          <p class="kaidah-card-def">
+            Kata kerja kopula yang menghubungkan subjek (objek observasi) dengan pelengkap berupa definisi, identitas, atau pengelompokan kelasnya.
+          </p>
+          <div class="kaidah-card-func">
+            <strong>Fungsi LHO:</strong> Membentuk kalimat definisi dan klasifikasi umum pada paragraf pembuka teks.
+          </div>
+          <div class="kaidah-card-example">
+            <strong>Contoh Budaya Surakarta:</strong><br>
+            “Batik <strong>merupakan</strong> kain yang pembuatannya menggunakan malam sebagai perintang warna.”<br>
+            “Pasar Gede <strong>adalah</strong> cagar budaya peninggalan era Sunan Pakubuwana X.”
+          </div>
+        </div>
+
+        <!-- Kartu 3: Verba Material -->
+        <div class="kaidah-card">
+          <div class="kaidah-card-header">
+            <div class="kaidah-icon-box">⚙️</div>
+            <span class="kaidah-num-badge">Kaidah 03</span>
+          </div>
+          <h3 class="kaidah-card-title">Verba Material</h3>
+          <p class="kaidah-card-def">
+            Kata kerja yang menunjukkan perbuatan fisik, tindakan konkret, atau proses kerja nyata yang dapat disaksikan secara kasatmata.
+          </p>
+          <div class="kaidah-card-func">
+            <strong>Fungsi LHO:</strong> Mendeskripsikan tahapan pembuatan karya atau aktivitas sosial pada objek yang diobservasi.
+          </div>
+          <div class="kaidah-card-example">
+            <strong>Contoh Budaya Surakarta:</strong><br>
+            “Perajin <strong>menorehkan</strong> malam pada kain menggunakan canting.”<br>
+            “Pedagang Pasar Gede <strong>menata</strong> aneka rempah dan buah segar di atas meja los kayu.”
+          </div>
+        </div>
+
+        <!-- Kartu 4: Kalimat Definisi -->
+        <div class="kaidah-card">
+          <div class="kaidah-card-header">
+            <div class="kaidah-icon-box">📖</div>
+            <span class="kaidah-num-badge">Kaidah 04</span>
+          </div>
+          <h3 class="kaidah-card-title">Kalimat Definisi</h3>
+          <p class="kaidah-card-def">
+            Kalimat yang merumuskan pengertian, konsep esensial, atau batasan makna suatu objek observasi secara menyeluruh.
+          </p>
+          <div class="kaidah-card-func">
+            <strong>Fungsi LHO:</strong> Memberikan batasan ilmiah formal pada bagian awal laporan agar objek terdefinisi jelas.
+          </div>
+          <div class="kaidah-card-example">
+            <strong>Contoh Budaya Surakarta:</strong><br>
+            “Canting <strong>adalah</strong> alat untuk menorehkan malam pada kain dalam pembuatan batik.”<br>
+            “Pura Mangkunegaran <strong>merupakan</strong> istana kadipaten agung di Surakarta yang didirikan pada tahun 1757.”
+          </div>
+        </div>
+
+        <!-- Kartu 5: Kalimat Deskripsi -->
+        <div class="kaidah-card">
+          <div class="kaidah-card-header">
+            <div class="kaidah-icon-box">🔍</div>
+            <span class="kaidah-num-badge">Kaidah 05</span>
+          </div>
+          <h3 class="kaidah-card-title">Kalimat Deskripsi</h3>
+          <p class="kaidah-card-def">
+            Kalimat yang memerinci ciri fisik, bagian-bagian, komponen arsitektur, ukuran, maupun karakteristik visual objek secara detail.
+          </p>
+          <div class="kaidah-card-func">
+            <strong>Fungsi LHO:</strong> Mengisi paragraf deskripsi bagian dengan data fakta yang rinci tanpa opini subjektif.
+          </div>
+          <div class="kaidah-card-example">
+            <strong>Contoh Budaya Surakarta:</strong><br>
+            “Canting <strong>memiliki</strong> gagang kayu, penampung malam dari tembaga, dan cerat kecil.”<br>
+            “Pendopo Ageng Pura Mangkunegaran <strong>memiliki</strong> atap joglo yang ditopang oleh empat tiang saka guru jati utuh.”
+          </div>
+        </div>
+
+        <!-- Kartu 6: Istilah Teknis (Glosarium) -->
+        <div class="kaidah-card">
+          <div class="kaidah-card-header">
+            <div class="kaidah-icon-box">📚</div>
+            <span class="kaidah-num-badge">Kaidah 06</span>
+          </div>
+          <h3 class="kaidah-card-title">Istilah Teknis (Glosarium)</h3>
+          <p class="kaidah-card-def">
+            Kosakata khusus atau jargon ilmiah yang digunakan dalam bidang seni kriya, kebudayaan, atau arsitektur Jawa di Surakarta.
+          </p>
+          <div class="kaidah-card-func">
+            <strong>Fungsi LHO:</strong> Memperkuat bobot ilmiah dan presisi laporan hasil pengamatan cagar budaya.
+          </div>
+          <div class="kaidah-card-example">
+            <strong>Glosarium Budaya Surakarta:</strong><br>
+            • <em>canting</em>: alat tembaga bergagang bambu penoreh lilin batik.<br>
+            • <em>malam</em>: lilin perintang warna khusus batik.<br>
+            • <em>motif</em>: pola ragam hias kain (<em>parang, kawung</em>).<br>
+            • <em>pendopo</em>: bangunan terbuka beratap joglo tempat pertemuan agung.<br>
+            • <em>saka guru</em>: empat tiang utama penyangga inti joglo.
+          </div>
+        </div>
+
+        <!-- Kartu 7: Konjungsi (Kata Penghubung) -->
+        <div class="kaidah-card">
+          <div class="kaidah-card-header">
+            <div class="kaidah-icon-box">🔀</div>
+            <span class="kaidah-num-badge">Kaidah 07</span>
+          </div>
+          <h3 class="kaidah-card-title">Konjungsi (Penghubung)</h3>
+          <p class="kaidah-card-def">
+            Kata yang menghubungkan antarkata, antarklausa, maupun antarkalimat guna membangun alur penalaran yang runtut dan logis.
+          </p>
+          <div class="kaidah-card-func">
+            <strong>Fungsi LHO:</strong> Menciptakan kohesi dan koherensi agar paragraf laporan tersusun secara sistematis.
+          </div>
+          <div class="kaidah-card-example">
+            <strong>Contoh Penggunaan dalam Laporan:</strong><br>
+            • <em>dan</em> (penambahan): “Kompleks keraton memiliki Sasana Sumewa <strong>dan</strong> Sasana Sewaka.”<br>
+            • <em>sedangkan</em> (pertentangan): “Batik tulis dibuat manual, <strong>sedangkan</strong> batik cap memanfaatkan cetakan tembaga.”<br>
+            • <em>selain itu</em> (antarkalimat): “Pasar Gede menjadi pusat pangan. <strong>Selain itu</strong>, pasar ini menjadi destinasi edu-wisata.”
+          </div>
+        </div>
+
+        <!-- Kartu 8: Bahasa Baku, Objektif & Denotatif -->
+        <div class="kaidah-card">
+          <div class="kaidah-card-header">
+            <div class="kaidah-icon-box">⚖️</div>
+            <span class="kaidah-num-badge">Kaidah 08</span>
+          </div>
+          <h3 class="kaidah-card-title">Baku, Objektif & Denotatif</h3>
+          <p class="kaidah-card-def">
+            Menggunakan kata bermakna lugas/harfiah (denotatif), tata bahasa baku (EYD), serta menyajikan fakta yang dapat diverifikasi siapa saja.
+          </p>
+          <div class="kaidah-card-func">
+            <strong>Fungsi LHO:</strong> Menjamin laporan bebas dari prasangka subjektif, sanjungan berlebihan, atau kata sifat emosional.
+          </div>
+          <div class="kaidah-card-example">
+            <strong>Perbandingan Subjektif vs Objektif:</strong><br>
+            ❌ <em>Subjektif:</em> “Lorong Laweyan terasa sangat sempit dan menyeramkan.”<br>
+            ✔️ <em>Objektif:</em> “Lorong Laweyan selebar rata-rata dua meter dan diapit tembok bata setinggi dua hingga tiga meter.”
+          </div>
+        </div>
+
+      </div>
+
+      <!-- FITUR 1: CONTOH ANALISIS PARAGRAF LHO -->
+      <div class="annotated-paragraph-box">
+        <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1.5rem; flex-wrap: wrap; gap: 1rem;">
+          <div>
+            <div class="section-header-pill" style="background: var(--terracotta-50); color: var(--terracotta-600);">
+              🔬 Bedah Teks Interaktif
+            </div>
+            <h3 style="font-size: 1.5rem; color: #3D2917; margin-top: 0.25rem;">
+              Contoh Analisis Paragraf LHO Beranotasi
+            </h3>
+            <p style="font-size: 0.9rem; color: #6B6258;">
+              Klik tombol filter di bawah untuk menyorot unsur kebahasaan tertentu, atau klik teks yang bergaris bawah untuk melihat keterangannya.
+            </p>
+          </div>
+        </div>
+
+        <!-- Legend Filter Buttons -->
+        <div class="legend-filter-bar">
+          <button class="legend-filter-btn legend-btn-all active" data-filter="all">
+            <span>✨</span> Semua Unsur
+          </button>
+          <button class="legend-filter-btn legend-btn-nom" data-filter="nom">
+            <span style="display:inline-block; width:10px; height:10px; background:#2D5834; border-radius:50%;"></span>
+            Nomina & Frasa Nominal
+          </button>
+          <button class="legend-filter-btn legend-btn-rel" data-filter="rel">
+            <span style="display:inline-block; width:10px; height:10px; background:#1B5D88; border-radius:50%;"></span>
+            Verba Relasional
+          </button>
+          <button class="legend-filter-btn legend-btn-mat" data-filter="mat">
+            <span style="display:inline-block; width:10px; height:10px; background:#9A3E1F; border-radius:50%;"></span>
+            Verba Material
+          </button>
+          <button class="legend-filter-btn legend-btn-ist" data-filter="ist">
+            <span style="display:inline-block; width:10px; height:10px; background:#622E80; border-radius:50%;"></span>
+            Istilah Teknis
+          </button>
+          <button class="legend-filter-btn legend-btn-kon" data-filter="kon">
+            <span style="display:inline-block; width:10px; height:10px; background:#8A6A12; border-radius:50%;"></span>
+            Konjungsi
+          </button>
+        </div>
+
+        <!-- Annotated Paragraph Canvas -->
+        <div class="annotated-text-canvas">
+          <span class="hl-nom" title="Frasa Nominal (Subjek Pengamatan)">Kampung Batik Laweyan</span> 
+          <span class="hl-rel" title="Verba Relasional (Penghubung Definisi)">merupakan</span> 
+          <span class="hl-nom" title="Frasa Nominal (Kategori Cagar Budaya)">sentra kerajinan batik tradisional</span> yang berlokasi di wilayah barat daya Kota Surakarta. 
+          Di kawasan ini, <span class="hl-nom" title="Nomina (Pelaku Tindakan)">para perajin</span> 
+          <span class="hl-mat" title="Verba Material (Tindakan Fisik)">menorehkan</span> 
+          <span class="hl-ist" title="Istilah Teknis Batik">cairan malam panas</span> pada kain mori menggunakan 
+          <span class="hl-ist" title="Istilah Teknis Alat Kriya">canting tembaga</span> untuk membentuk 
+          <span class="hl-ist" title="Istilah Teknis Pola Hias">motif parang</span> 
+          <span class="hl-kon" title="Konjungsi Penambahan">dan</span> 
+          <span class="hl-ist" title="Istilah Teknis Pola Hias">kawung</span>. 
+          <span class="hl-kon" title="Konjungsi Antarkalimat Penambahan">Selain itu</span>, 
+          <span class="hl-nom" title="Frasa Nominal (Objek Fisik)">rumah-rumah saudagar batik</span> memiliki 
+          <span class="hl-ist" title="Istilah Teknis Arsitektur">pendopo joglo</span> 
+          <span class="hl-kon" title="Konjungsi Penggabungan">serta</span> 
+          <span class="hl-nom" title="Frasa Nominal (Bagian Bangunan)">lorong sempit berbenteng bata tinggi</span> yang berfungsi sebagai 
+          <span class="hl-nom" title="Frasa Nominal (Fungsi Manfaat)">sarana perlindungan dan ruang produksi</span>.
+        </div>
+
+        <!-- Educational Note: Satu kalimat dapat memuat banyak unsur -->
+        <div class="multi-element-notice-box">
+          <div style="font-size: 1.6rem; color: #AA8220; line-height: 1;">💡</div>
+          <div>
+            <h5>Prinsip Penting Tata Bahasa LHO:</h5>
+            <p>
+              <strong>Satu kalimat dapat mengandung beberapa unsur kebahasaan sekaligus!</strong><br>
+              Sebagai contoh, pada kalimat: <em>“Para perajin menorehkan cairan malam panas pada kain mori menggunakan canting tembaga,”</em> kata <strong>para perajin</strong> adalah nomina (subjek), <strong>menorehkan</strong> adalah verba material (tindakan), sedangkan <strong>cairan malam</strong> dan <strong>canting</strong> merupakan istilah teknis kriya batik.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- FITUR 2: KUIS INTERAKTIF PUSAKA BAHASA SURAKARTA (CRT • TEKS LHO) -->
+      <div class="mb-12" style="margin-bottom: 3.5rem;">
+        <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1.25rem; flex-wrap: wrap; gap: 1rem;">
+          <div>
+            <div class="section-header-pill" style="background: var(--terracotta-50); color: var(--terracotta-600);">
+              🎮 Asesmen Formatif Budaya Surakarta
+            </div>
+            <h3 style="font-size: 1.6rem; color: #3D2917; margin-top: 0.25rem;">
+              Kuis Interaktif LHO: Jelajah Pusaka Bahasa Surakarta
+            </h3>
+            <p style="font-size: 0.9rem; color: #6B6258;">
+              Uji pemahaman kaidah kebahasaan teks LHO melalui 10 pos budaya (Keraton, Mangkunegaran, Laweyan, Pasar Gede, Balekambang) dengan pendekatan <em>Culturally Responsive Teaching</em> (CRT).
+            </p>
+          </div>
+          <div style="display: flex; gap: 0.75rem; align-items: center;">
+            <a href="kuis/index.html" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" style="font-size: 0.85rem; padding: 0.55rem 1.15rem;" title="Buka kuis di tab baru atau layar penuh">
+              <span>↗️</span> Buka Layar Penuh (Tab Baru)
+            </a>
+          </div>
+        </div>
+
+        <!-- Embedded Interactive Quiz Frame -->
+        <div style="width: 100%; border-radius: var(--radius-lg); overflow: hidden; border: 2px solid #825f3e; box-shadow: var(--shadow-lg); background: #1a110a;">
+          <iframe src="kuis/index.html" 
+                  id="quizPusakaIframe"
+                  title="Kuis Interaktif LHO: Jelajah Pusaka Bahasa Surakarta" 
+                  style="width: 100%; height: 860px; border: none; display: block;"
+                  allow="autoplay">
+          </iframe>
+        </div>
+      </div>
+
+      <!-- FITUR 3: LATIHAN MENYUNTING KALIMAT SUBJEKTIF MENJADI OBJEKTIF -->
+      <div style="margin-bottom: 3.5rem;">
+        <div class="section-header-pill" style="background: var(--terracotta-50); color: var(--terracotta-600);">
+          ✍️ Keterampilan Menulis Ilmiah
+        </div>
+        <h3 style="font-size: 1.6rem; color: #3D2917; margin-bottom: 0.5rem;">
+          Latihan Menyunting Kalimat Subjektif Menjadi Objektif
+        </h3>
+        <p style="font-size: 0.95rem; color: #6B6258; max-width: 820px; margin-bottom: 2rem;">
+          Laporan Hasil Observasi harus bersih dari kata bernilai rasa, opini individual, serta sanjungan berlebihan. 
+          Amati kalimat subjektif berikut, ketik alternatif perbaikan faktual versimu, lalu klik tombol bandingkan untuk melihat model jawaban baku dan alasan linguistiknya.
+        </p>
+
+        <!-- Container generated dynamically by JS -->
+        <div id="editingExercisesContainer" class="editing-exercises-wrapper"></div>
+      </div>
+
+      <div style="text-align: center; margin-top: 2rem;">
+        <button class="btn btn-primary" data-goto="peta">
+          <span>🗺️</span> Lanjut ke Peta Jelajah Surakarta ➔
+        </button>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===================================================================
+       5. HALAMAN “PETA JELAJAH” SURAKARTA
+       =================================================================== -->
+  <section id="sec-peta" class="page-section">
+    <div class="container">
+      
+      <div class="section-header-pill">Navigasi Geografis Budaya</div>
+      <h2 class="section-title">Peta Jelajah Objek Budaya Surakarta</h2>
+      <p class="section-subtitle">
+        Klik pin lokasi pada peta ilustratif Kota Solo di bawah ini untuk melihat detail objek, 
+        menonton video observasi dokumenter, atau langsung memulai pencatatan fakta lapangan.
+      </p>
+
+      <div class="map-view-wrapper">
+        <div class="map-layout-grid">
+          
+          <!-- Interactive Illustrated Map of Surakarta with Clickable Hotspots -->
+          <div class="interactive-image-map-container" id="imageMapContainer">
+            <div class="map-image-holder">
+              <img src="assets/peta-surakarta.jpg" alt="Peta Ilustrasi Cagar Budaya Surakarta" class="map-main-img" id="surakartaMapImg">
+              
+              <!-- Map Hotspot Pins Overlay -->
+              <div class="map-pins-layer" id="mapPinsLayer">
+                <!-- Rendered dynamically by JS with interactive pulsing pins and tooltips -->
+              </div>
+            </div>
+            
+            <div class="map-hint-banner">
+              <span>💡</span> <strong>Petunjuk Interaktif:</strong> Klik pin lokasi pada peta atau pilih kartu di samping untuk langsung beralih mengobservasi dan menonton video dokumenter YouTube.
+            </div>
+          </div>
+
+          <!-- Cards Column -->
+          <div class="location-cards-column" id="mapLocationCards">
+            <!-- Rendered by JS -->
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===================================================================
+       5 & 6. HALAMAN VIDEO OBSERVASI & SUMBER VIDEO
+       =================================================================== -->
+  <section id="sec-video" class="page-section">
+    <div class="container">
+      
+      <div class="section-header-pill">Fitur Utama Pengamatan Digital</div>
+      <h2 class="section-title">Video Observasi Budaya Surakarta</h2>
+      <p class="section-subtitle">
+        Tonton dokumenter budaya dari kanal resmi terpercaya secara seksama. Catat setiap fakta visual, 
+        arsitektur, dan sejarah ke dalam panduan tugas di samping video.
+      </p>
+
+      <!-- Location Selector Chips -->
+      <div class="video-selector-bar" id="videoSelectorChips"></div>
+
+      <!-- Main Workspace Grid -->
+      <div class="video-workspace-grid">
+        
+        <!-- Video Thumbnail Card Column -->
+        <div class="video-player-container">
+          <div class="video-header-row">
+            <div>
+              <div style="font-size: 0.8rem; font-weight: 700; color: #C85A32; text-transform: uppercase;">
+                🎥 Dokumenter Observasi Budaya Surakarta
+              </div>
+              <h3 class="video-active-title" id="videoActiveTitle">Memuat Video...</h3>
+            </div>
+            <div class="video-source-pill" id="videoChannelName">
+              Kanal Resmi Kebudayaan
+            </div>
+          </div>
+
+          <!-- YouTube Thumbnail & Navigation Box -->
+          <div class="video-thumbnail-box" id="videoThumbnailBox">
+            <img id="videoThumbImg" src="" alt="Thumbnail Video YouTube Observasi" class="video-thumb-img">
+            <div class="video-thumb-overlay">
+              <a id="btnWatchYoutube" 
+                 href="" 
+                 target="_blank" 
+                 rel="noopener noreferrer" 
+                 class="video-play-btn-large"
+                 title="Tonton video langsung di YouTube (Tab Baru)">
+                <div class="yt-play-icon-circle">
+                  <svg viewBox="0 0 24 24" width="36" height="36" fill="white">
+                    <path d="M8 5v14l11-7z"/>
+                  </svg>
+                </div>
+                <span class="video-play-label">▶ Tonton Video di YouTube ↗</span>
+              </a>
+            </div>
+            <div class="video-duration-badge">HD 1080p • YouTube</div>
+          </div>
+
+          <div class="video-meta-bar" style="margin-top: 1.25rem;">
+            <span>💡 <em>Klik tombol <strong>“Tonton Video di YouTube”</strong> untuk membuka dan menyaksikan dokumenter di tab baru sambil mencatat fakta pada lembar tugas di samping!</em></span>
+            <a id="btnWatchDirectLink" href="" target="_blank" rel="noopener noreferrer" class="btn-yt-direct">
+              Buka YouTube ↗
+            </a>
+          </div>
+        </div>
+
+        <!-- Tugas Kamu Saat Menonton Panel -->
+        <div class="observation-task-panel">
+          <div class="task-panel-header">
+            <h3><span>📋</span> Tugas Kamu Saat Menonton</h3>
+            <p><strong>Jangan hanya menonton. Jadilah seorang pengamat kritis!</strong> Temukan jawaban 6 aspek kunci berikut dari video:</p>
+          </div>
+
+          <div class="task-questions-list" id="taskQuestionsList">
+            <!-- Dynamically populated from JS with real-time textareas -->
+          </div>
+
+          <div class="quick-save-bar">
+            <button class="btn btn-primary" onclick="saveObservationNotes()" style="width: 100%;">
+              <span>💾</span> SIMPAN HASIL PENGAMATAN
+            </button>
+            <button class="btn btn-secondary" data-goto="catat" style="width: 100%;">
+              <span>📝</span> Buka Lembar Observasi Lengkap ➔
+            </button>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===================================================================
+       7. HALAMAN “CATAT FAKTA” (LEMBAR OBSERVASI DIGITAL)
+       =================================================================== -->
+  <section id="sec-catat" class="page-section">
+    <div class="container">
+      
+      <div class="section-header-pill">Instrumen Kerja Siswa</div>
+      <h2 class="section-title">🔎 CATAT HASIL OBSERVASIMU</h2>
+      <p class="section-subtitle">
+        Tuliskan data faktual hasil pengamatan video ke dalam tabel terstruktur di bawah ini. 
+        Gunakan data konkret, hindari opini subjektif, dan gunakan kalimat baku.
+      </p>
+
+      <div class="sheet-container">
+        
+        <!-- Header Identitas Siswa -->
+        <div class="sheet-header-box">
+          <div>
+            <h3 style="font-size: 1.3rem; color: #3D2917;">Lembar Kerja Peserta Didik (LKPD) Observasi</h3>
+            <div style="font-size: 0.85rem; color: #6B6258; margin-top: 0.2rem;" id="sheetLocationBadge">
+              Objek Observasi: Keraton Surakarta
+            </div>
+          </div>
+          <button class="btn btn-secondary" style="padding: 0.5rem 1rem; font-size: 0.82rem;" onclick="fillSampleFacts()">
+            <span>✨</span> Muat Data Rekomendasi
+          </button>
+        </div>
+
+        <div class="sheet-student-info">
+          <div class="student-input-group">
+            <label>Nama Lengkap Siswa</label>
+            <input type="text" id="studentNameInput" placeholder="Contoh: Raden Ayu Sekar" value="Sekar Ayu Kinanthi">
+          </div>
+          <div class="student-input-group">
+            <label>Kelas (Fase E)</label>
+            <select id="studentClassInput">
+              <option value="X-1">X-1 (Sepuluh Satu)</option>
+              <option value="X-2">X-2 (Sepuluh Dua)</option>
+              <option value="X-3">X-3 (Sepuluh Tiga)</option>
+              <option value="X-4">X-4 (Sepuluh Empat)</option>
+              <option value="X-5">X-5 (Sepuluh Lima)</option>
+              <option value="X-6">X-6 (Sepuluh Enam)</option>
+            </select>
+          </div>
+          <div class="student-input-group">
+            <label>Tanggal Pengamatan</label>
+            <input type="date" id="observationDateInput">
+          </div>
+          <div class="student-input-group">
+            <label>Objek Budaya Terpilih</label>
+            <select id="sheetLocationSelect"></select>
+          </div>
+        </div>
+
+        <!-- Tabel Aspek yang Diamati vs Hasil Pengamatan -->
+        <table class="observation-table-styled">
+          <thead>
+            <tr>
+              <th>Aspek yang Diamati</th>
+              <th>Hasil Pengamatan (Fakta Konkret)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Row 1: Nama Objek -->
+            <tr>
+              <td>
+                <div class="aspek-badge">📌 1. Nama Objek</div>
+                <div class="aspek-hint">Nama resmi objek, julukan budaya, dan tahun pendirian.</div>
+              </td>
+              <td>
+                <textarea class="observation-input-textarea" id="field_namaObjek" 
+                          placeholder="Tuliskan nama lengkap cagar budaya yang diamati..."></textarea>
+                <span class="example-quote-pill" onclick="copyScaffoldText('namaObjek', 'Objek yang diobservasi adalah cagar budaya...')">
+                  + Sisipkan kalimat pembuka baku
+                </span>
+              </td>
+            </tr>
+
+            <!-- Row 2: Lokasi -->
+            <tr>
+              <td>
+                <div class="aspek-badge">📍 2. Lokasi Objek</div>
+                <div class="aspek-hint">Kelurahan, kecamatan, serta letak geografis di Surakarta.</div>
+              </td>
+              <td>
+                <textarea class="observation-input-textarea" id="field_lokasi" 
+                          placeholder="Jelaskan letak geografis cagar budaya ini di Kota Solo..."></textarea>
+                <span class="example-quote-pill" onclick="copyScaffoldText('lokasi', 'Objek ini berlokasi strategis di kawasan...')">
+                  + Sisipkan kalimat lokasi
+                </span>
+              </td>
+            </tr>
+
+            <!-- Row 3: Ciri Umum -->
+            <tr>
+              <td>
+                <div class="aspek-badge">🏛️ 3. Ciri Umum / Klasifikasi</div>
+                <div class="aspek-hint">Kategori cagar budaya, gaya arsitektur, dan karakteristik umum.</div>
+              </td>
+              <td>
+                <textarea class="observation-input-textarea" id="field_ciriUmum" 
+                          placeholder="Uraikan klasifikasi objek, corak bangunan, dan sifat umumnya..."></textarea>
+                <span class="example-quote-pill" onclick="copyScaffoldText('ciriUmum', 'Secara arsitektural, objek ini diklasifikasikan sebagai...')">
+                  + Sisipkan kalimat klasifikasi
+                </span>
+              </td>
+            </tr>
+
+            <!-- Row 4: Bagian / Unsur Objek -->
+            <tr>
+              <td>
+                <div class="aspek-badge">📊 4. Bagian / Unsur Objek</div>
+                <div class="aspek-hint">Struktur bangunan, ruangan, material ornamen, atau sarana yang terlihat.</div>
+              </td>
+              <td>
+                <textarea class="observation-input-textarea" id="field_bagianObjek" 
+                          placeholder="Rincikan bagian-bagian fisik yang tampak dalam tayangan video..."></textarea>
+                <span class="example-quote-pill" onclick="copyScaffoldText('bagianObjek', 'Bagian-bagian penting yang dapat diidentifikasi meliputi...')">
+                  + Sisipkan rincian bagian
+                </span>
+              </td>
+            </tr>
+
+            <!-- Row 5: Manfaat / Fungsi -->
+            <tr>
+              <td>
+                <div class="aspek-badge">💡 5. Manfaat / Fungsi Objek</div>
+                <div class="aspek-hint">Fungsi pelestarian, pariwisata edukatif, ekonomi, atau sosial.</div>
+              </td>
+              <td>
+                <textarea class="observation-input-textarea" id="field_manfaat" 
+                          placeholder="Jelaskan nilai kegunaan objek bagi masyarakat dan dunia pendidikan..."></textarea>
+                <span class="example-quote-pill" onclick="copyScaffoldText('manfaat', 'Keberadaan objek ini berfungsi strategis sebagai...')">
+                  + Sisipkan fungsi manfaat
+                </span>
+              </td>
+            </tr>
+
+            <!-- Row 6: Fakta Khusus & Temuan Angka -->
+            <tr>
+              <td>
+                <div class="aspek-badge">📚 6. Fakta Khusus / Temuan Menarik</div>
+                <div class="aspek-hint">Data angka, fakta sejarah unik, peraturan, atau tokoh pembuat.</div>
+              </td>
+              <td>
+                <textarea class="observation-input-textarea" id="field_faktaTemuan" 
+                          placeholder="Catat fakta unik angka, ukuran, atau peristiwa bersejarah dari video..."></textarea>
+                <span class="example-quote-pill" onclick="copyScaffoldText('faktaTemuan', 'Berdasarkan data dokumenter, fakta menarik yang ditemukan adalah...')">
+                  + Sisipkan fakta pendukung
+                </span>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <!-- Actions -->
+        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+          <button class="btn btn-secondary" onclick="saveObservationNotes()">
+            <span>💾</span> Simpan Draf Observasi
+          </button>
+          <button class="btn btn-primary" data-goto="susun">
+            <span>📄</span> Lanjut Susun LHO Lengkap ➔
+          </button>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===================================================================
+       8. HALAMAN “SUSUN LHO & PUBLIKASI” (EDTECH SUITE)
+       =================================================================== -->
+  <section id="sec-susun" class="page-section">
+    <div class="container">
+      
+      <div class="section-header-pill no-print">Langkah Akhir Pembelajaran</div>
+      <h2 class="section-title no-print">Susun & Publikasikan Laporan Hasil Observasimu</h2>
+      <p class="section-subtitle no-print">
+        Data catatan observasi Anda secara otomatis ditransformasikan ke dalam draf struktur baku LHO. 
+        Sempurnakan kalimat, cek rubrik penilaian mandiri, dan cetak laporan hasil karyamu!
+      </p>
+
+      <div class="lho-builder-grid">
+        
+        <!-- Interactive Paper Preview (Printable View) -->
+        <div class="lho-preview-paper" id="printableReportSection">
+          <div class="paper-watermark">JEJAK OBSERVASI</div>
+          
+          <div class="paper-header">
+            <h3 class="paper-title" id="paperPreviewTitle">Laporan Hasil Observasi: Keraton Surakarta</h3>
+            <div class="paper-author-line" id="paperPreviewMeta">
+              Penulis: Siswa SMA Kelas X • Objek: Budaya Surakarta
+            </div>
+          </div>
+
+          <!-- Section 1: Pernyataan Umum -->
+          <div class="paper-section-block">
+            <span class="paper-section-tag">I. Pernyataan Umum / Klasifikasi</span>
+            <p class="paper-paragraph-text" id="paperPuText">
+              Memuat teks pernyataan umum...
+            </p>
+          </div>
+
+          <!-- Section 2: Deskripsi Bagian -->
+          <div class="paper-section-block">
+            <span class="paper-section-tag">II. Deskripsi Bagian</span>
+            <p class="paper-paragraph-text" id="paperDbText">
+              Memuat uraian deskripsi bagian...
+            </p>
+          </div>
+
+          <!-- Section 3: Deskripsi Manfaat -->
+          <div class="paper-section-block">
+            <span class="paper-section-tag">III. Deskripsi Manfaat</span>
+            <p class="paper-paragraph-text" id="paperDmText">
+              Memuat uraian deskripsi manfaat...
+            </p>
+          </div>
+
+          <!-- Signature row for print view -->
+          <div style="margin-top: 3rem; display: flex; justify-content: space-between; font-size: 0.85rem;">
+            <div>
+              Mengetahui,<br>
+              <strong>Guru Pembimbing Bahasa Indonesia</strong><br><br><br>
+              (.......................................................)
+            </div>
+            <div style="text-align: right;">
+              Surakarta, .............................<br>
+              <strong>Siswa Pengamat / Penulis</strong><br><br><br>
+              (.......................................................)
+            </div>
+          </div>
+        </div>
+
+        <!-- Editor & Self Assessment Column (Hidden in Print) -->
+        <div class="no-print" style="display: flex; flex-direction: column; gap: 1.5rem;">
+          
+          <!-- Editor Form -->
+          <div style="background: #fff; border-radius: var(--radius-md); border: 1.5px solid var(--border-light); padding: 1.5rem; box-shadow: var(--shadow-sm);">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+              <h4 style="font-size: 1.1rem; color: #3D2917;">✍️ Editor Draf Teks</h4>
+              <button class="btn btn-secondary" style="padding: 0.35rem 0.85rem; font-size: 0.78rem;" onclick="updateLHOPreview()">
+                Sinkronkan Catatan 🔄
+              </button>
+            </div>
+
+            <div style="margin-bottom: 1rem;">
+              <label style="display:block; font-size: 0.78rem; font-weight: 700; color: #6B6258; margin-bottom: 0.3rem;">
+                Paragraf 1: Pernyataan Umum / Klasifikasi
+              </label>
+              <textarea id="lhoPernyataanUmum" class="observation-input-textarea" style="min-height: 80px;"></textarea>
+            </div>
+
+            <div style="margin-bottom: 1rem;">
+              <label style="display:block; font-size: 0.78rem; font-weight: 700; color: #6B6258; margin-bottom: 0.3rem;">
+                Paragraf 2: Deskripsi Bagian
+              </label>
+              <textarea id="lhoDeskripsiBagian" class="observation-input-textarea" style="min-height: 90px;"></textarea>
+            </div>
+
+            <div style="margin-bottom: 1rem;">
+              <label style="display:block; font-size: 0.78rem; font-weight: 700; color: #6B6258; margin-bottom: 0.3rem;">
+                Paragraf 3: Deskripsi Manfaat
+              </label>
+              <textarea id="lhoDeskripsiManfaat" class="observation-input-textarea" style="min-height: 80px;"></textarea>
+            </div>
+
+            <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+              <button class="btn btn-gold" style="flex: 1; min-width: 130px; font-size: 0.88rem;" onclick="copyFullLHOText()">
+                <span>📋</span> Salin Teks
+              </button>
+              <button class="btn btn-primary" style="flex: 1; min-width: 130px; font-size: 0.88rem;" onclick="printLHOReport()">
+                <span>🖨️</span> Cetak / PDF
+              </button>
+            </div>
+
+            <!-- Kirim Tugas Siswa ke Google Drive & Google Spreadsheet -->
+            <div class="cloud-submit-box">
+              <div class="cloud-submit-header">
+                <span>☁️</span>
+                <div>
+                  <strong>Kirim Hasil Observasi ke Google Drive & Spreadsheet</strong>
+                  <p>Kumpulkan teks LHO dan hasil rekap observasimu langsung ke sistem Google Drive & Spreadsheet kelas.</p>
+                </div>
+              </div>
+              <div class="cloud-submit-actions">
+                <button class="btn btn-cloud-submit" id="btnCloudSubmit" onclick="submitWorkToGoogleSheets()">
+                  <span>📤</span> Kirim ke Google Drive & Spreadsheet
+                </button>
+                <button class="btn btn-cloud-csv" onclick="exportWorkSummaryCSV()" title="Unduh rekap data CSV yang dapat dibuka di Google Spreadsheet">
+                  <span>📊</span> Unduh Spreadsheet (CSV)
+                </button>
+              </div>
+              <div class="cloud-status-text" id="cloudSubmitStatus">
+                Status: Siap dikirim ke Google Spreadsheet kelas.
+              </div>
+            </div>
+          </div>
+
+          <!-- Rubrik Penilaian Mandiri Siswa -->
+          <div class="rubrik-card">
+            <h4 style="font-size: 1.1rem; color: #3D2917; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.5rem;">
+              <span>✔️</span> Rubrik Evaluasi Diri (Checklist)
+            </h4>
+            <p style="font-size: 0.8rem; color: #6B6258; margin-bottom: 1rem;">
+              Pastikan teks observasi memenuhi seluruh kriteria kelayakan teks ilmiah sebelum dikumpulkan:
+            </p>
+
+            <div class="rubrik-item">
+              <input type="checkbox" class="rubrik-checkbox" id="rb1" checked>
+              <div class="rubrik-info">
+                <h5>1. Kejelasan Judul & Identitas Objek</h5>
+                <p>Judul mencantumkan nama spesifik objek cagar budaya Surakarta secara jelas.</p>
+              </div>
+            </div>
+
+            <div class="rubrik-item">
+              <input type="checkbox" class="rubrik-checkbox" id="rb2" checked>
+              <div class="rubrik-info">
+                <h5>2. Memuat Klasifikasi & Definisi Umum</h5>
+                <p>Paragraf pembuka memuat kategori cagar budaya dan letak geografis objek.</p>
+              </div>
+            </div>
+
+            <div class="rubrik-item">
+              <input type="checkbox" class="rubrik-checkbox" id="rb3" checked>
+              <div class="rubrik-info">
+                <h5>3. Objektif & Bebas dari Kata Opini Subjektif</h5>
+                <p>Tidak menggunakan kata sifat bernilai rasa ("paling indah", "sangat enak", "wajib dicintai").</p>
+              </div>
+            </div>
+
+            <div class="rubrik-item">
+              <input type="checkbox" class="rubrik-checkbox" id="rb4" checked>
+              <div class="rubrik-info">
+                <h5>4. Memuat Deskripsi Manfaat Nyata</h5>
+                <p>Menjelaskan fungsi objek di bidang edukasi, sejarah, konservasi, atau ekonomi.</p>
+              </div>
+            </div>
+
+            <div class="rubrik-item">
+              <input type="checkbox" class="rubrik-checkbox" id="rb5" checked>
+              <div class="rubrik-info">
+                <h5>5. Ketepatan Kaidah Bahasa (EYD)</h5>
+                <p>Menggunakan huruf kapital, tanda baca titik-koma, dan istilah baku secara tepat.</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- Banner Refleksi Pembelajaran di Padlet -->
+      <div class="no-print" style="margin-top: 2.5rem; background: linear-gradient(135deg, #FFF9F3 0%, #FBF1E6 100%); border: 1.5px solid var(--terracotta-500); border-radius: var(--radius-lg); padding: 2rem 2.5rem; display: flex; align-items: center; justify-content: space-between; gap: 2rem; flex-wrap: wrap; box-shadow: var(--shadow-sm);">
+        <div style="flex: 1; min-width: 280px;">
+          <div class="section-header-pill" style="background: var(--terracotta-50); color: var(--terracotta-600); margin-bottom: 0.5rem;">
+            💭 Papan Refleksi Pembelajaran
+          </div>
+          <h3 style="font-size: 1.4rem; color: #3D2917; margin-bottom: 0.35rem;">Bagikan Pengalaman Belajarmu di Padlet!</h3>
+          <p style="font-size: 0.9rem; color: #6B6258; line-height: 1.5;">
+            Setelah menyelesaikan dan mencetak Laporan Hasil Observasi, sampaikan refleksi, wawasan baru, serta tantangan yang kamu hadapi di papan Padlet kelas agar dapat didiskusikan bersama guru dan teman-teman sekelas.
+          </p>
+        </div>
+        <a href="https://padlet.com/peserta24614/refleksi-pembelajaran-s023dy7nto76yc2khd33" 
+           target="_blank" 
+           rel="noopener noreferrer" 
+           class="btn btn-primary"
+           style="white-space: nowrap; font-size: 0.95rem; padding: 0.85rem 1.6rem;">
+          <span>💭</span> Buka Papan Refleksi Padlet <span>↗</span>
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===================================================================
+       9. HALAMAN REFLEKSI PEMBELAJARAN (PADLET INTEGRASI)
+       =================================================================== -->
+  <section id="sec-refleksi" class="page-section">
+    <div class="container">
+      
+      <div class="section-header-pill">Evaluasi & Refleksi Pembelajaran</div>
+      <h2 class="section-title">💭 Papan Refleksi Siswa</h2>
+      <p class="section-subtitle">
+        Sampaikan pengalaman, pemahaman baru, serta perasaanmu selama mengamati budaya Surakarta dan menulis teks LHO di papan kolaboratif Padlet kelas berikut.
+      </p>
+
+      <!-- Action Card -->
+      <div style="background: #fff; border-radius: var(--radius-lg); border: 1.5px solid var(--border-light); padding: 1.75rem 2rem; margin-bottom: 2rem; box-shadow: var(--shadow-sm); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1.5rem;">
+        <div style="flex: 1; min-width: 280px;">
+          <h4 style="font-size: 1.2rem; color: #3D2917; margin-bottom: 0.35rem;">
+            📌 Papan Refleksi Kelas Bahasa Indonesia Fase E
+          </h4>
+          <p style="font-size: 0.88rem; color: #6B6258;">
+            Tautan resmi: <a href="https://padlet.com/peserta24614/refleksi-pembelajaran-s023dy7nto76yc2khd33" target="_blank" rel="noopener noreferrer" style="color: var(--terracotta-600); font-weight: 700;">https://padlet.com/peserta24614/refleksi-pembelajaran-s023dy7nto76yc2khd33</a>
+          </p>
+        </div>
+        <a href="https://padlet.com/peserta24614/refleksi-pembelajaran-s023dy7nto76yc2khd33" 
+           target="_blank" 
+           rel="noopener noreferrer" 
+           class="btn btn-primary"
+           style="font-size: 0.95rem; padding: 0.85rem 1.6rem;">
+          <span>🚀</span> Buka Padlet di Tab Baru ↗
+        </a>
+      </div>
+
+      <!-- Guiding Questions -->
+      <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; margin-bottom: 2rem;">
+        <div style="background: var(--bg-cream); border: 1px solid var(--border-light); border-radius: var(--radius-md); padding: 1.25rem;">
+          <div style="font-size: 1.4rem; margin-bottom: 0.4rem;">💡</div>
+          <h5 style="font-size: 0.95rem; color: #3D2917; margin-bottom: 0.35rem;">Wawasan Baru</h5>
+          <p style="font-size: 0.82rem; color: #6B6258;">Fakta budaya unik apa yang baru kamu ketahui dari video dokumenter Surakarta?</p>
+        </div>
+        <div style="background: var(--bg-cream); border: 1px solid var(--border-light); border-radius: var(--radius-md); padding: 1.25rem;">
+          <div style="font-size: 1.4rem; margin-bottom: 0.4rem;">🎯</div>
+          <h5 style="font-size: 0.95rem; color: #3D2917; margin-bottom: 0.35rem;">Tantangan Pengamatan</h5>
+          <p style="font-size: 0.82rem; color: #6B6258;">Bagian mana yang paling menantang saat memilah fakta objektif dari opini subjektif?</p>
+        </div>
+        <div style="background: var(--bg-cream); border: 1px solid var(--border-light); border-radius: var(--radius-md); padding: 1.25rem;">
+          <div style="font-size: 1.4rem; margin-bottom: 0.4rem;">🌟</div>
+          <h5 style="font-size: 0.95rem; color: #3D2917; margin-bottom: 0.35rem;">Rasa Syukur & Apresiasi</h5>
+          <p style="font-size: 0.82rem; color: #6B6258;">Bagaimana perasaanmu setelah berhasil menyusun dan mempublikasikan Laporan Hasil Observasi?</p>
+        </div>
+      </div>
+
+      <!-- Padlet Iframe Embed -->
+      <div style="width: 100%; height: 720px; border-radius: var(--radius-md); overflow: hidden; border: 1.5px solid var(--border-light); box-shadow: var(--shadow-md); background: #FAF7F2; position: relative;">
+        <iframe src="https://padlet.com/embed/peserta24614/refleksi-pembelajaran-s023dy7nto76yc2khd33" 
+                frameborder="0" 
+                allow="camera;microphone;geolocation" 
+                style="width:100%;height:100%;display:block;border:none;"></iframe>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer-main no-print">
+    <div class="footer-content">
+      <div>
+        <div style="font-weight: 800; color: #3D2917; font-size: 1.1rem; margin-bottom: 0.25rem;">
+          Jejak Observasi • Budaya Surakarta
+        </div>
+        <div style="font-size: 0.85rem;">
+          Media Pembelajaran Digital Teks LHO SMA Kelas X • Bahasa Indonesia Fase E
+        </div>
+      </div>
+      <div style="font-size: 0.82rem;">
+        “Amati Budayanya, Temukan Faktanya, Tulis Laporannya.”
+      </div>
+    </div>
+  </footer>
+
+  <!-- Floating Toast Notification -->
+  <div class="toast-notice" id="toastNotice">
+    <span>✅</span> Catatan berhasil disimpan!
+  </div>
+
+  <!-- MODAL ENSIKLOPEDIA & BUDAYA SURAKARTA -->
+  <div class="solo-modal-backdrop" id="soloCultureModal" onclick="closeSoloCultureModal(event)">
+    <div class="solo-modal-dialog" onclick="event.stopPropagation()">
+      <div class="solo-modal-header">
+        <div style="display: flex; align-items: center; gap: 0.75rem;">
+          <span style="font-size: 1.8rem;">🏮</span>
+          <div>
+            <h3 style="margin: 0; font-size: 1.35rem; color: #3D2917;">Ensiklopedia Cagar Budaya Surakarta</h3>
+            <span style="font-size: 0.78rem; color: #825F3E; font-weight: 700;">Panduan Objek Pengamatan Teks LHO SMA Kelas X</span>
+          </div>
+        </div>
+        <button class="solo-modal-close" onclick="closeSoloCultureModal()">✕</button>
+      </div>
+
+      <div class="solo-modal-body">
+        <div class="modal-culture-banner">
+          <img src="assets/beranda-bg.jpg" alt="Pusaka Budaya Solo" class="modal-banner-img">
+          <div class="modal-banner-text">
+            <h4>Surakarta Hadiningrat: Kota Budaya & Sejarah</h4>
+            <p>Pusat kesusastraan, arsitektur keraton, dan tradisi adiluhung Jawa yang menjadi sumber observasi faktual kaya nilai ilmiah.</p>
+          </div>
+        </div>
+
+        <div class="modal-locations-list" id="modalLocationsList">
+          <!-- Populated by JS -->
+        </div>
+      </div>
+
+      <div class="solo-modal-footer">
+        <button class="btn btn-secondary" onclick="closeSoloCultureModal()">Tutup</button>
+        <button class="btn btn-primary" onclick="closeSoloCultureModal(); navigateTo('peta');">
+          <span>🗺️</span> Buka Peta Jelajah ➔
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================================================================
+       MODAL 1: IDENTITAS & REKAP PROGRES SISWA
+       =================================================================== -->
+  <div class="solo-modal-backdrop" id="studentIdModal" onclick="closeStudentIdModal(event)">
+    <div class="solo-modal-dialog student-id-dialog" onclick="event.stopPropagation()">
+      <div class="solo-modal-header">
+        <div style="display: flex; align-items: center; gap: 0.75rem;">
+          <span style="font-size: 1.8rem;">👤</span>
+          <div>
+            <h3 style="margin: 0; font-size: 1.3rem; color: var(--sogan-800);">Identitas Siswa & Rekap Progres Belajar</h3>
+            <span style="font-size: 0.78rem; color: var(--sogan-500); font-weight: 700;">Jejak Observasi • Kurikulum Merdeka Fase E</span>
+          </div>
+        </div>
+        <button class="solo-modal-close" onclick="closeStudentIdModal()">✕</button>
+      </div>
+
+      <div class="solo-modal-body">
+        <!-- Form Pengisian Identitas -->
+        <div class="student-form-card">
+          <h4 style="font-size: 1.05rem; color: var(--sogan-800); margin-bottom: 0.75rem;">📋 Profil Pengamat</h4>
+          <div class="student-form-grid">
+            <div class="student-form-group">
+              <label for="modalStudentName">Nama Lengkap Siswa:</label>
+              <input type="text" id="modalStudentName" placeholder="Contoh: Budi Santoso" class="student-text-input">
+            </div>
+            <div class="student-form-group">
+              <label for="modalStudentClass">Kelas / Fase:</label>
+              <select id="modalStudentClass" class="student-text-input">
+                <option value="X-1">X-1 (Sepuluh 1)</option>
+                <option value="X-2">X-2 (Sepuluh 2)</option>
+                <option value="X-3">X-3 (Sepuluh 3)</option>
+                <option value="X-4">X-4 (Sepuluh 4)</option>
+                <option value="X-5">X-5 (Sepuluh 5)</option>
+                <option value="X-6">X-6 (Sepuluh 6)</option>
+                <option value="X-7">X-7 (Sepuluh 7)</option>
+                <option value="X-8">X-8 (Sepuluh 8)</option>
+              </select>
+            </div>
+          </div>
+          <button class="btn btn-primary" style="margin-top: 1rem; width: 100%; font-size: 0.9rem;" onclick="saveStudentIdentityFromModal()">
+            💾 Simpan Identitas Murid
+          </button>
+        </div>
+
+        <!-- Rekapitulasi Progres Kegiatan Dari Awal hingga Akhir -->
+        <div class="student-progress-summary-card">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+            <h4 style="font-size: 1.05rem; color: var(--sogan-800); margin: 0;">📊 Rekapitulasi Aktivitas Pembelajaran</h4>
+            <span class="progress-percent-badge" id="rekapPercentBadge">0% Selesai</span>
+          </div>
+
+          <div class="rekap-checklist-grid" id="rekapChecklistGrid">
+            <!-- Populated dynamically by JS -->
+          </div>
+        </div>
+      </div>
+
+      <div class="solo-modal-footer">
+        <button class="btn btn-secondary" onclick="closeStudentIdModal()">Tutup</button>
+        <button class="btn btn-primary" onclick="closeStudentIdModal(); navigateTo('catat');">
+          <span>📝</span> Lanjut Observasi
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================================================================
+       MODAL 2: PORTAL KHUSUS GURU (AKSES DENGAN PIN)
+       =================================================================== -->
+  <div class="solo-modal-backdrop" id="teacherPortalModal" onclick="closeTeacherPortalModal(event)">
+    <div class="solo-modal-dialog teacher-portal-dialog" onclick="event.stopPropagation()">
+      <div class="solo-modal-header" style="background: linear-gradient(135deg, var(--indigo-700), var(--sogan-800)); color: #fff;">
+        <div style="display: flex; align-items: center; gap: 0.75rem;">
+          <span style="font-size: 1.8rem;">🔐</span>
+          <div>
+            <h3 style="margin: 0; font-size: 1.3rem; color: #FFF2D1;">Portal Guru & Dashboard Monitoring</h3>
+            <span style="font-size: 0.78rem; color: #E0E7FF;">Pengawasan Aktivitas Siswa & Integrasi Google Spreadsheet</span>
+          </div>
+        </div>
+        <button class="solo-modal-close" style="background: rgba(255,255,255,0.2); color: #fff;" onclick="closeTeacherPortalModal()">✕</button>
+      </div>
+
+      <div class="solo-modal-body">
+        <!-- Area 1: Login PIN Guru (Jika belum login) -->
+        <div id="teacherPinLoginForm" class="teacher-pin-box">
+          <div style="text-align: center; margin-bottom: 1.5rem;">
+            <span style="font-size: 2.5rem; display: block; margin-bottom: 0.5rem;">🔑</span>
+            <h4 style="font-size: 1.2rem; color: var(--sogan-800); margin-bottom: 0.25rem;">Masukkan PIN Guru</h4>
+            <p style="font-size: 0.85rem; color: var(--text-muted); margin: 0;">
+              Masukkan PIN keamanan guru untuk mengakses rekap seluruh kelas dan pengaturan Spreadsheet.
+            </p>
+            <div style="margin-top: 0.5rem; font-size: 0.75rem; color: var(--indigo-600); font-weight: 700;">
+              💡 PIN Default Guru: <strong>1234</strong> (Dapat diubah kapan saja)
+            </div>
+          </div>
+
+          <div style="display: flex; gap: 0.75rem; max-width: 340px; margin: 0 auto;">
+            <input type="password" id="teacherPinInput" placeholder="Masukkan 4 Digit PIN" maxlength="8" class="student-text-input" style="text-align: center; font-size: 1.2rem; letter-spacing: 0.2em; font-weight: 800;" onkeydown="if(event.key === 'Enter') verifyTeacherPin()">
+            <button class="btn btn-primary" onclick="verifyTeacherPin()">
+              Buka ➔
+            </button>
+          </div>
+          <div id="teacherPinError" style="color: #D32F2F; font-size: 0.82rem; text-align: center; margin-top: 0.75rem; display: none;">
+            ⚠️ PIN yang Anda masukkan salah. Coba lagi!
+          </div>
+        </div>
+
+        <!-- Area 2: Dashboard Guru (Tampil setelah PIN benar) -->
+        <div id="teacherDashboardContent" style="display: none;">
+          <!-- Kartu Pengaturan Google Spreadsheet & Drive -->
+          <div class="teacher-settings-card">
+            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.75rem; flex-wrap: wrap; gap: 0.5rem;">
+              <div>
+                <h4 style="margin: 0; font-size: 1.05rem; color: var(--sogan-800);">📊 Integrasi Google Drive & Spreadsheet Kelas</h4>
+                <p style="font-size: 0.82rem; color: var(--text-muted); margin: 0;">
+                  Set tautan Google Form / Apps Script Webhook agar kiriman murid otomatis terarsip rapi.
+                </p>
+              </div>
+              <span class="sheet-status-badge active" id="sheetWebhookStatusBadge">Tersinkronisasi</span>
+            </div>
+
+            <div style="margin-top: 0.85rem;">
+              <label style="display: block; font-size: 0.78rem; font-weight: 700; color: var(--sogan-700); margin-bottom: 0.35rem;">
+                URL Google Webhook / Google Form URL (Opsional):
+              </label>
+              <div style="display: flex; gap: 0.5rem;">
+                <input type="text" id="teacherSpreadsheetWebhook" class="student-text-input" placeholder="https://script.google.com/macros/s/... atau Google Form action URL">
+                <button class="btn btn-primary" style="font-size: 0.85rem; padding: 0.55rem 1.15rem;" onclick="saveTeacherSpreadsheetWebhook()">
+                  Simpan URL
+                </button>
+              </div>
+              <span style="font-size: 0.72rem; color: var(--text-light); display: block; margin-top: 0.35rem;">
+                *Jika URL dikosongkan, sistem web akan mengarsipkan data observasi di memori browser dan guru dapat mengunduh seluruh rekap kelas langsung dalam format <strong>CSV Spreadsheet</strong>.
+              </span>
+            </div>
+          </div>
+
+          <!-- Rekap Seluruh Aktivitas Siswa -->
+          <div style="margin-top: 1.5rem;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; flex-wrap: wrap; gap: 0.75rem;">
+              <h4 style="margin: 0; font-size: 1.1rem; color: var(--sogan-800);">📋 Rekap Nilai & Hasil Pengamatan Siswa</h4>
+              <div style="display: flex; gap: 0.6rem;">
+                <button class="btn btn-secondary" style="font-size: 0.82rem; padding: 0.45rem 0.95rem;" onclick="renderTeacherDashboardData()">
+                  🔄 Muat Ulang
+                </button>
+                <button class="btn btn-primary" style="font-size: 0.82rem; padding: 0.45rem 0.95rem;" onclick="exportTeacherClassDataCSV()">
+                  📥 Unduh Excel / Spreadsheet (CSV)
+                </button>
+              </div>
+            </div>
+
+            <!-- Tabel Monitoring Murid -->
+            <div style="overflow-x: auto; border: 1.5px solid var(--border-light); border-radius: var(--radius-md);">
+              <table class="teacher-monitoring-table">
+                <thead>
+                  <tr>
+                    <th>Waktu</th>
+                    <th>Nama Siswa</th>
+                    <th>Kelas</th>
+                    <th>Objek Observasi</th>
+                    <th>Skor Kuis Fakta</th>
+                    <th>Skor Kuis Bahasa</th>
+                    <th>Status LHO</th>
+                    <th>Aksi</th>
+                  </tr>
+                </thead>
+                <tbody id="teacherStudentsTableBody">
+                  <!-- Populated by JS -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="solo-modal-footer">
+        <button class="btn btn-secondary" onclick="closeTeacherPortalModal()">Tutup Portal</button>
+        <button class="btn btn-gold-outline" id="btnLogoutTeacher" style="display: none;" onclick="logoutTeacherPortal()">
+          🔒 Kunci Kembali Portal
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Application Scripts -->
+  <script src="js/data.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
